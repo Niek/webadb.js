@@ -11,7 +11,7 @@ jobs:
 
       - name: Copy webadb.js
         run: |
-          cp webabs.js site/
+          cp webabd.js site/
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@3.6.2
