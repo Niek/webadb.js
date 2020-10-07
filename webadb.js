@@ -112,8 +112,7 @@
 		let match = this.find(filter);
 		return this.device.selectConfiguration(match.conf.configurationValue)
 			.then(() => this.device.claimInterface(match.intf.interfaceNumber))
-			.then(() => this.device.selectAlternateInterface(match.intf.interfaceNumber, match.alt.alternateSetting))
-			.then(() => match);
+			.then(() => match.alt.alternateSetting != 0 ? this.device.selectAlternateInterface(match.intf.interfaceNumber, match.alt.alternateSetting).then(() => match) : match);
 	};
 
 	Adb.WebUSB.Transport.prototype.connectAdb = function(banner, auth_user_notify = null) {
